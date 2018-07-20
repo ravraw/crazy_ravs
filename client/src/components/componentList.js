@@ -16,6 +16,9 @@ import MenuDisplay from "./Main/MenuDisplay";
 import BurgerBuilder from "./BurgerBuilder/BurgerBuilder";
 import BurgerControls from "./BurgerBuilder/BurgerControls";
 import BurgerDisplay from "./BurgerBuilder/BurgerDisplay";
+import IngredientType from "./BurgerBuilder/IngredientType";
+import Ingredient from "./BurgerBuilder/Ingredient";
+import BuilderTotal from "./BurgerBuilder/BuilderTotal";
 
 // FOOTER
 import Footer from "./Footer/Footer";
@@ -45,6 +48,9 @@ export {
   BurgerBuilder,
   BurgerControls,
   BurgerDisplay,
+  IngredientType,
+  Ingredient,
+  BuilderTotal,
   //Footers
   Footer,
   //UI

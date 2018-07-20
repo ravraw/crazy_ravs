@@ -1,12 +1,21 @@
 import React from "react";
+import styled from "styled-components";
+import { BurgerControls, BurgerDisplay, BuilderTotal } from "../componentList";
 
-import { BurgerControls, BurgerDisplay } from "../componentList";
+const BurgerBuilder = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background: red;
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 export default () => {
   return (
-    <React-Fragment>
+    <BurgerBuilder>
+      <BuilderTotal />
       <BurgerControls />
       <BurgerDisplay />
-    </React-Fragment>
+    </BurgerBuilder>
   );
 };

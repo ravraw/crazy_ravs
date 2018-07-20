@@ -6,13 +6,13 @@ const Counter = styled.div`
   > span {
     width: 20px;
     height: 20px;
-    padding: 5px 5px;
+    padding: 3px 5px;
     border: 1px solid gray;
   }
   > #span1 {
     background: tomato;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    /* border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px; */
     cursor: pointer;
   }
   > #span2 {
@@ -20,8 +20,8 @@ const Counter = styled.div`
   }
   > #span3 {
     background: lightgreen;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    /* border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px; */
     cursor: pointer;
   }
 `;

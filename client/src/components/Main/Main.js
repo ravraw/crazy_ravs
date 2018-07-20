@@ -5,13 +5,16 @@ import {
   Sidebar,
   Navbar,
   NavItem,
-  MenuDisplay
+  MenuDisplay,
+  BurgerBuilder,
+  BuilderTotal
 } from "../componentList";
 const Main = styled.main`
   height: 75vh;
   display: flex;
   align-items: center;
   overflow: scroll;
+  position: relative;
 `;
 
 export default () => {
@@ -33,7 +36,9 @@ export default () => {
         </Sidebar>
       </WrappingDiv>
       <WrappingDiv height="100%" width="100%">
-        <MenuDisplay />
+        {/* <MenuDisplay /> */}
+
+        <BurgerBuilder />
       </WrappingDiv>
     </Main>
   );
