@@ -5,18 +5,19 @@ import {
   Sidebar,
   Navbar,
   NavItem,
-  MainDisplay
+  MenuDisplay
 } from "../componentList";
 const Main = styled.main`
   height: 75vh;
   display: flex;
+  align-items: center;
   overflow: scroll;
 `;
 
 export default () => {
   return (
     <Main>
-      <WrappingDiv width="15%" height="100%">
+      <WrappingDiv maxWidth="15%" height="100%" minWidth="85px">
         <Sidebar>
           <Navbar direction="column" justify="space-around" align="center">
             <NavItem name="Builder" iconName="burger" color=" #6b9f38" />
@@ -31,8 +32,8 @@ export default () => {
           </Navbar>
         </Sidebar>
       </WrappingDiv>
-      <WrappingDiv height="100%">
-        <MainDisplay />
+      <WrappingDiv height="100%" width="100%">
+        <MenuDisplay />
       </WrappingDiv>
     </Main>
   );

@@ -6,7 +6,6 @@ const SideBar = styled.aside`
   min-width: 100px;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid gray;
 `;
 
 export default props => <SideBar>{props.children}</SideBar>;

@@ -3,11 +3,19 @@ import Layout from "./Layout/Layout";
 
 // HEADER
 import Header from "./Header/Header";
+import SignIn from "./Header/SignIn";
+import SignUp from "./Header/SignUp";
 
 // MAIN
 import Main from "./Main/Main";
 import Sidebar from "./Main/Sidebar";
-import MainDisplay from "./Main/MianDisplay";
+import MenuDisplay from "./Main/MenuDisplay";
+
+//BurgerBuilder
+
+import BurgerBuilder from "./BurgerBuilder/BurgerBuilder";
+import BurgerControls from "./BurgerBuilder/BurgerControls";
+import BurgerDisplay from "./BurgerBuilder/BurgerDisplay";
 
 // FOOTER
 import Footer from "./Footer/Footer";
@@ -18,16 +26,25 @@ import Navbar from "./UI/Navbar";
 import NavItem from "./UI/NavItem";
 import WrappingDiv from "./UI/wrappingDiv";
 import Card from "./UI/Card";
+import QuantityCounter from "./UI/QuantityCounter";
+import Button from "./UI/Button";
+import Overlay from "./UI/Overlay";
 
 export {
   //Layout
   Layout,
   // Header
   Header,
+  SignIn,
+  SignUp,
   //Main
   Main,
   Sidebar,
-  MainDisplay,
+  MenuDisplay,
+  // BurgerBuilder
+  BurgerBuilder,
+  BurgerControls,
+  BurgerDisplay,
   //Footers
   Footer,
   //UI
@@ -35,5 +52,8 @@ export {
   Navbar,
   NavItem,
   WrappingDiv,
-  Card
+  Card,
+  QuantityCounter,
+  Button,
+  Overlay
 };

@@ -2,12 +2,21 @@
 
 import React, { Component } from "react";
 
-import { Header, Main, Footer } from "../componentList";
+import {
+  Header,
+  Main,
+  Footer,
+  Overlay,
+  SignIn,
+  SignUp
+} from "../componentList";
 
 class Layout extends Component {
   render() {
     return (
       <React.Fragment>
+        {/* <Overlay />
+        <SignUp /> */}
         <Header />
         <hr />
         <Main />

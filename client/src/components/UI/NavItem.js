@@ -11,9 +11,8 @@ const Div = styled.div`
   flex: 1 1 auto; //grow shrink basis
   align-items: center;
   padding: 10px;
-  margin: 5px;
+
   font-family: "Bangers", cursive;
-  /* border: 1px solid red; */
   font-size: 1.5em;
   cursor: pointer;
   transition: 0.25s;
