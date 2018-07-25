@@ -3,17 +3,15 @@ import styled from "styled-components";
 import { Card } from "../componentList";
 import burger from "../../assets/images/burger.jpg";
 const Div = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex: 1 1 auto; //grow shrink basis
-  justify-content: space-around;
-  background: lightblue;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-gap: 25px;
   height: 100%;
   width: 100%;
   overflow: scroll;
 `;
 
-const MenuDisplay = class MianDisplay extends Component {
+class MainDisplay extends Component {
   render() {
     return (
       <Div>
@@ -183,5 +181,5 @@ const MenuDisplay = class MianDisplay extends Component {
       </Div>
     );
   }
-};
-export default MenuDisplay;
+}
+export default MainDisplay;

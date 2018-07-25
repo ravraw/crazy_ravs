@@ -2,24 +2,20 @@ import React from "react";
 import styled from "styled-components";
 
 const Nav = styled.nav`
+  /* border: 1px solid red; */
   width: 100%;
   height: 100%;
   display: flex;
-  flex: 1 0 auto; //grow shrink basis
-  align-items: center;
+  /* display: grid; */
 `;
 
 const Navbar = props => {
-  return (
-    <Nav
-      style={{
-        justifyContent: `${props.justify}`,
-        flexDirection: `${props.direction}`,
-        alignContent: `${props.align}`
-      }}
-    >
-      {props.children}
-    </Nav>
-  );
+  const style = {
+    flexDirection: `${props.direction}`,
+    justifyContent: `${props.justifyContent}`,
+    alignItems: `${props.alignItems}`
+  };
+
+  return <Nav style={style}> {props.children}</Nav>;
 };
 export default Navbar;

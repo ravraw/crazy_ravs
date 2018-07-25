@@ -6,8 +6,13 @@ const Button = styled.button`
   font-size: 1em;
   border-radius: 50px;
   padding: 10px auto;
-  margin: 10px auto;
-  background: yellow;
+  /* margin: 10px auto; */
+  background: tomato;
+  color: white;
+
+  :hover {
+    background: green;
+  }
 `;
 export default props => {
   return <Button>{props.name}</Button>;

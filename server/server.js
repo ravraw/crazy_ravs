@@ -39,26 +39,15 @@ app.post("/signup", (req, res, next) => {
         .into("users")
         .returning("*")
         .then(user => {
-          console.log(users);
-          return (
-            trx("user_login")
-              .returning("*")
-              .insert({
-                user_id: user[0].id,
-                password: hash,
-                email: email
-              })
-
-              // .then(user => {
-              //   console.log(user);
-              //   return trx("user_profile")
-              //     .returning("*")
-              //     .insert({
-              //       user_id: user[0].id
-              //     })
-              .then(user => res.status(200).json(user[0]))
-          );
-          // });
+          return trx
+            .insert({
+              user_id: user[0].id,
+              password: hash,
+              email: email
+            })
+            .into("user_login")
+            .returning("*")
+            .then(user => res.status(200).json(user[0]));
         })
         .then(trx.commit)
         .catch(trx.rollback);

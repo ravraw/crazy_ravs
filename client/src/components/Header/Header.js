@@ -1,27 +1,30 @@
 import React, { Component } from "react";
-import { Logo, Navbar, NavItem, WrappingDiv } from "../componentList";
+import { Logo, Navbar, NavItem } from "../componentList";
 import styled from "styled-components";
 
 const Header = styled.header`
-  height: 20vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* border: 1px solid red; */
+  /* grid-column: 1 / -1;
+  grid-row: 1 / 2; */
+  grid-area: head;
+
+  /* display: flex;
+  justify-content: center; */
+  display: grid;
+  grid-template-columns: minmax(220px, 3fr) minmax(100px, 1fr);
+  box-shadow: 0 3px 5px 0px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
 `;
 
 export default class extends Component {
   render() {
     return (
       <Header>
-        <WrappingDiv width="75%" height="90%">
-          <Logo />
-        </WrappingDiv>
-        <WrappingDiv width="25%" height="90%">
-          <Navbar direction="row" justify="flex-end" align="center">
-            <NavItem name="LOGIN" />
-            <NavItem name="ORDERS" />
-          </Navbar>
-        </WrappingDiv>
+        <Logo />
+        <Navbar direction="row" justifyContent="flex-end" alignItems="center">
+          <NavItem to="/Login" name="Login" iconName="login" />
+          <NavItem to="/checkout" name="Order" iconName="order" />
+        </Navbar>
       </Header>
     );
   }

@@ -1,21 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 
-import { WrappingDiv, QuantityCounter, Button } from "../componentList";
+import { QuantityCounter, Button } from "../componentList";
 
 const Div = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  background: lightgreen;
+
   flex: 1 1 auto; //grow shrink basis
   width: 100%;
+  padding: 10px;
+  margin: auto;
   border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.3);
 
   > img {
     width: 100%;
     height: auto;
+    border-radius: 5px;
   }
   > h1 {
     font-family: "Bangers", cursive;
@@ -29,23 +34,24 @@ const Div = styled.div`
     width: 80%;
     height: 25px;
     border-radius: 50px;
-
+    cursor: pointer;
     margin: 10px auto;
-    background: yellow;
+    background: tomato;
+    color: white;
   }
 `;
 
 const Card = props => {
   return (
-    <WrappingDiv maxWidth="225px" height="auto" minWidth="200px">
-      <Div>
-        <img src={props.image} alt="food" />
-        <h1>{props.name}</h1>
-        <p>{props.description}</p>
-        <QuantityCounter />
-        <Button name="ADD TO ORDER" />
-      </Div>
-    </WrappingDiv>
+    // <WrappingDiv maxWidth="225px" height="auto" minWidth="200px">
+    <Div>
+      <img src={props.image} alt="food" />
+      <h1>{props.name}</h1>
+      <p>{props.description}</p>
+      <QuantityCounter />
+      <Button name="ADD TO ORDER" />
+    </Div>
+    // </WrappingDiv>
   );
 };
 

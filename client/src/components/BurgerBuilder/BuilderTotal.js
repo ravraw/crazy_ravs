@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { QuantityCounter, Button } from "../componentList";
+import { Button } from "../componentList";
 
 const BuilderTotal = styled.div`
   width: 100%;
