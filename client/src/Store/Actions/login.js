@@ -40,6 +40,26 @@ export const signupFail = error => {
   };
 };
 
+export const googleStart = () => {
+  return {
+    type: actionTypes.GOOGLE_AUTH_START
+  };
+};
+
+export const googleSuccess = data => {
+  return {
+    type: actionTypes.GOOGLE_AUTH_SUCCESS,
+    payload: data
+  };
+};
+
+export const googleFail = error => {
+  return {
+    type: actionTypes.GOOGLE_AUTH_FAIL,
+    error: error
+  };
+};
+
 export const login = (email, password, username) => {
   return dispatch => {
     dispatch(loginStart());
@@ -70,6 +90,22 @@ export const signup = (email, password, username) => {
       .catch(err => {
         console.log(err);
         dispatch(signupFail(err));
+      });
+  };
+};
+
+export const googleAuth = () => {
+  return dispatch => {
+    dispatch(googleStart());
+    axios
+      .get("/auth/google/")
+      .then(res => {
+        console.log(res);
+        dispatch(googleSuccess(res));
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch(googleFail(err));
       });
   };
 };

@@ -5,6 +5,8 @@ const bcrypt = require("bcrypt-nodejs");
 const cors = require("cors");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
+const authGoogle = require("./routes/google");
+const passportSetup = require("./config/passport-setup");
 
 const port = process.env.PORT || 3005;
 // knex setup
@@ -12,28 +14,39 @@ const ENV = process.env.ENV || "development";
 const knexConfig = require("./knexfile");
 const knex = require("knex")(knexConfig[ENV]);
 
-const authGoogle = require("./routes/google");
-const passportSetup = require("./config/passport-setup");
-
 // app
 const app = express();
 
-// Google Auth
-app.use("/auth", authGoogle);
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+//   );
+//   if (req.method === "OPTIONS") {
+//     res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+//     return res.status(200).json({});
+//   }
+//   next();
+// });
 
 // Initialize passport
-app.use(passport.session());
 app.use(passport.initialize());
+app.use(passport.session());
 
 // middlewares
 app.use(bodyparser.json());
 app.use(cors());
+
 app.use(
   cookieSession({
-    maxAge: 1000,
+    maxAge: 24 * 60 * 60 * 1000,
     keys: [process.env.COOKIE_KEY]
   })
 );
+
+// Google Auth
+app.use("/auth", cors(), authGoogle);
 
 // GET users
 

@@ -50,6 +50,26 @@ const signupFail = (state, action) => {
   });
 };
 
+const googleAuthStart = (state, action) => {
+  return updateObject(state, { error: null, loading: true });
+};
+
+const googleAuthSuccess = (state, action) => {
+  return updateObject(state, {
+    token: action.idToken,
+    userId: action.userId,
+    error: null,
+    loading: false
+  });
+};
+
+const googleAuthFail = (state, action) => {
+  return updateObject(state, {
+    error: action.error,
+    loading: false
+  });
+};
+
 export const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.LOGIN_START:
@@ -71,6 +91,19 @@ export const signupReducer = (state = initialState, action) => {
       return signupSuccess(state, action);
     case actionTypes.SIGNUP_FAIL:
       return signupFail(state, action);
+    default:
+      return state;
+  }
+};
+
+export const googleAuthReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case actionTypes.GOOGLE_AUTH_START:
+      return googleAuthStart(state, action);
+    case actionTypes.GOOGLE_AUTH_SUCCESS:
+      return googleAuthSuccess(state, action);
+    case actionTypes.GOOGLE_AUTH_FAIL:
+      return googleAuthFail(state, action);
     default:
       return state;
   }

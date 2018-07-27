@@ -1,1 +1,1 @@
-export { loginReducer, signupReducer } from "./login";
+export { loginReducer, signupReducer, googleAuthReducer } from "./login";

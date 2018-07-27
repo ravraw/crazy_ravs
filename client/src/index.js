@@ -6,7 +6,11 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { combineReducers, createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
-import { loginReducer, signupReducer } from "./Store/Reducers/login";
+import {
+  loginReducer,
+  signupReducer,
+  googleAuthReducer
+} from "./Store/Reducers/login";
 
 // Internal
 import "./index.css";
@@ -25,7 +29,8 @@ const middleware = [thunk];
 // REDUCERS  from Reducers folder / index.js
 const rootReducer = combineReducers({
   login: loginReducer,
-  signup: signupReducer
+  signup: signupReducer,
+  googleAuth: googleAuthReducer
 });
 
 // ADDS REDUX DEV TOOL

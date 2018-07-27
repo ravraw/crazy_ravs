@@ -7,12 +7,13 @@ const knex = require("knex")(knexConfig[ENV]);
 
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20");
-const keys = require("./keys");
 
 passport.serializeUser((user, done) => {
-  done(null, user.id);
+  console.log("--- serialize-------", user);
+  done(null, user[0].id);
 });
 passport.deserializeUser((id, done) => {
+  console.log("--- deserialize-------", id);
   knex
     .select("*")
     .from("users")
@@ -39,7 +40,8 @@ passport.use(
         .from("users")
         .where("email", "=", email.emails[0].value)
         .then(registeredUser => {
-          if (registeredUser) {
+          // console.log(registeredUser[0]);
+          if (registeredUser[0]) {
             console.log("Already registered");
             done(null, registeredUser);
           } else {
@@ -51,7 +53,7 @@ passport.use(
               .into("users")
               .returning("*")
               .then(newUser => {
-                console.log(newUser);
+                // console.log(newUser);
                 done(null, newUser);
               })
               .catch(err => console.log(err));

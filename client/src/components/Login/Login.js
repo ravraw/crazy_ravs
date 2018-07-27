@@ -227,19 +227,20 @@ class Login extends Component {
               Click to {this.state.login ? "Sign-Up" : "Sign-In"}
             </span>
           </BreadBottom>
-          <a href="http://localhost:3005/auth/google/">
-            <img
-              src={google}
-              alt="google"
-              height="40px"
-              // onClick={() =>
-              //   axios
-              //     .get("/auth/google/")
-              //     .then(res => console.log(res))
-              //     .catch(err => console.log(err))
-              // }
-            />
-          </a>
+          {/* <a href="http://localhost:3005/auth/google/"> */}
+          <img
+            src={google}
+            alt="google"
+            height="40px"
+            // onClick={this.props.onGoogle}
+            onClick={() =>
+              axios
+                .get("/auth/google")
+                .then(res => console.log("whats up", res))
+                .catch(err => console.log(err))
+            }
+          />
+          {/* </a> */}
           <img src={facebook} alt="google" height="20px" />
         </Form>
       </Overlay>
@@ -257,7 +258,8 @@ const mapDispatchToProps = dispatch => {
   return {
     onLogin: (email, password) => dispatch(actions.login(email, password)),
     onSignup: (email, password, username) =>
-      dispatch(actions.signup(email, password, username))
+      dispatch(actions.signup(email, password, username)),
+    onGoogle: () => dispatch(actions.googleAuth())
   };
 };
 
