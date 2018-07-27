@@ -30,6 +30,26 @@ const loginFail = (state, action) => {
   });
 };
 
+const signupStart = (state, action) => {
+  return updateObject(state, { error: null, loading: true });
+};
+
+const signupSuccess = (state, action) => {
+  return updateObject(state, {
+    token: action.idToken,
+    userId: action.userId,
+    error: null,
+    loading: false
+  });
+};
+
+const signupFail = (state, action) => {
+  return updateObject(state, {
+    error: action.error,
+    loading: false
+  });
+};
+
 export const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.LOGIN_START:
@@ -38,6 +58,19 @@ export const loginReducer = (state = initialState, action) => {
       return loginSuccess(state, action);
     case actionTypes.LOGIN_FAIL:
       return loginFail(state, action);
+    default:
+      return state;
+  }
+};
+
+export const signupReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case actionTypes.SIGNUP_START:
+      return signupStart(state, action);
+    case actionTypes.SIGNUP_SUCCESS:
+      return signupSuccess(state, action);
+    case actionTypes.SIGNUP_FAIL:
+      return signupFail(state, action);
     default:
       return state;
   }

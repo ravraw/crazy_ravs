@@ -1,20 +1,39 @@
+require("dotenv").config();
 const express = require("express");
 const bodyparser = require("body-parser");
 const bcrypt = require("bcrypt-nodejs");
 const cors = require("cors");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
 
 const port = process.env.PORT || 3005;
 // knex setup
 const ENV = process.env.ENV || "development";
 const knexConfig = require("./knexfile");
 const knex = require("knex")(knexConfig[ENV]);
+
+const authGoogle = require("./routes/google");
+const passportSetup = require("./config/passport-setup");
+
 // app
 const app = express();
 
+// Google Auth
+app.use("/auth", authGoogle);
+
+// Initialize passport
+app.use(passport.session());
+app.use(passport.initialize());
+
 // middlewares
 app.use(bodyparser.json());
-require("dotenv").config();
 app.use(cors());
+app.use(
+  cookieSession({
+    maxAge: 1000,
+    keys: [process.env.COOKIE_KEY]
+  })
+);
 
 // GET users
 
@@ -57,12 +76,13 @@ app.post("/signup", (req, res, next) => {
 
 //-----POST "/signin"
 app.post("/signin", (req, res) => {
+  console.log(req.body);
   knex
     .select("email", "password")
     .from("user_login")
     .where("email", "=", req.body.email)
     .then(data => {
-      console.log(data);
+      console.log(data[0]);
       const isValid = bcrypt.compareSync(req.body.password, data[0].password);
       if (isValid) {
         return knex

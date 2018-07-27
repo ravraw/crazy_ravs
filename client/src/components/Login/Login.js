@@ -3,6 +3,11 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import { Overlay } from "../componentList";
 import * as actions from "../../Store/Actions";
+import axios from "axios";
+
+// images
+import google from "../../assets/images/google.png";
+import facebook from "../../assets/images/facebook.png";
 
 const Form = styled.form`
   border: 1px solid black;
@@ -49,9 +54,18 @@ const Form = styled.form`
     box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.3);
     font-size: 1em;
     cursor: pointer;
-    margin: 10px;
+    margin-right: 10px;
     :hover {
       background: #bc581e;
+    }
+  }
+  > div span {
+    margin-left: 10px;
+    border-bottom: 2px solid blue;
+    color: blue;
+
+    :hover {
+      color: green;
     }
   }
 `;
@@ -149,13 +163,23 @@ class Login extends Component {
 
   onSubmitHandler = e => {
     e.preventDefault();
-    this.setState({ login: false });
-    this.props.onLogin(this.state.email, this.state.password);
+    this.state.login
+      ? this.props.onLogin(this.state.email, this.state.password)
+      : this.props.onSignup(
+          this.state.email,
+          this.state.password,
+          this.state.username
+        );
   };
 
-  onSignupHandler = e => {
+  onToggleHandler = e => {
     e.preventDefault();
-    this.setState({ login: !this.state.login });
+    this.setState({
+      login: !this.state.login,
+      username: "",
+      email: "",
+      password: ""
+    });
   };
 
   render() {
@@ -174,6 +198,7 @@ class Login extends Component {
                 name="username"
                 style={{ background: " #d6bb22" }}
                 value={this.state.username}
+                s
                 onChange={this.onChangeHandler}
               />
             </React.Fragment>
@@ -195,11 +220,27 @@ class Login extends Component {
             onChange={this.onChangeHandler}
           />
           <BreadBottom>
-            <button onClick={this.onSubmitHandler}>SUBMIT</button>
-            <button onClick={this.onSignupHandler}>
-              {this.state.login ? "SIGN-UP ?" : "SIGN-IN ?"}
+            <button onClick={this.onSubmitHandler}>
+              {this.state.login ? "Sign-In" : "Sign-Up"}
             </button>
+            <span onClick={this.onToggleHandler}>
+              Click to {this.state.login ? "Sign-Up" : "Sign-In"}
+            </span>
           </BreadBottom>
+          <a href="http://localhost:3005/auth/google/">
+            <img
+              src={google}
+              alt="google"
+              height="40px"
+              // onClick={() =>
+              //   axios
+              //     .get("/auth/google/")
+              //     .then(res => console.log(res))
+              //     .catch(err => console.log(err))
+              // }
+            />
+          </a>
+          <img src={facebook} alt="google" height="20px" />
         </Form>
       </Overlay>
     );
@@ -214,7 +255,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onLogin: (email, password) => dispatch(actions.login(email, password))
+    onLogin: (email, password) => dispatch(actions.login(email, password)),
+    onSignup: (email, password, username) =>
+      dispatch(actions.signup(email, password, username))
   };
 };
 

@@ -20,8 +20,27 @@ export const loginFail = error => {
     error: error
   };
 };
+export const signupStart = () => {
+  return {
+    type: actionTypes.SIGNUP_START
+  };
+};
 
-export const login = (email, password) => {
+export const signupSuccess = data => {
+  return {
+    type: actionTypes.SIGNUP_SUCCESS,
+    payload: data
+  };
+};
+
+export const signupFail = error => {
+  return {
+    type: actionTypes.SIGNUP_FAIL,
+    error: error
+  };
+};
+
+export const login = (email, password, username) => {
   return dispatch => {
     dispatch(loginStart());
     const data = { email, password };
@@ -34,6 +53,23 @@ export const login = (email, password) => {
       .catch(err => {
         console.log(err);
         dispatch(loginFail(err));
+      });
+  };
+};
+
+export const signup = (email, password, username) => {
+  return dispatch => {
+    dispatch(signupStart());
+    const data = { email, password, username };
+    axios
+      .post("/signup", data)
+      .then(res => {
+        console.log(res);
+        dispatch(signupSuccess(res));
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch(signupFail(err));
       });
   };
 };
