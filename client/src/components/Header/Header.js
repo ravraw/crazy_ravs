@@ -22,8 +22,13 @@ export default class extends Component {
       <Header>
         <Logo />
         <Navbar direction="row" justifyContent="flex-end" alignItems="center">
-          <NavItem to="/Login" name="Login" iconName="login" />
-          <NavItem to="/checkout" name="Order" iconName="order" />
+          <NavItem to="/Login" name="Login" iconName="" />
+          <NavItem
+            to="/checkout"
+            name="Order"
+            iconName="food-2"
+            orderCount="10"
+          />
         </Navbar>
       </Header>
     );

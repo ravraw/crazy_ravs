@@ -6,7 +6,6 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex("burgers").insert([
         {
-          id: 1,
           item_name: "Oldtimer with Cheese",
           item_price: 10,
           item_description:
@@ -16,7 +15,6 @@ exports.seed = function(knex, Promise) {
           item_image: "./images/oldtimer_with_cheese"
         },
         {
-          id: 2,
           item_name: "Classic Bacon Burger",
           item_price: 10,
           item_description:
@@ -26,7 +24,6 @@ exports.seed = function(knex, Promise) {
           item_image: "./images/classic_bacon_burger"
         },
         {
-          id: 3,
           item_name: "Southern Smokehouse Burger",
           item_price: 10,
           item_description:

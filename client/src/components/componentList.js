@@ -30,6 +30,16 @@ import IngredientType from "./BurgerBuilder/IngredientType";
 import Ingredient from "./BurgerBuilder/Ingredient";
 import BuilderTotal from "./BurgerBuilder/BuilderTotal";
 
+// Builder
+
+import Builder from "./Builder/Builder";
+import Controls from "./Builder/Controls";
+import Burger from "./Builder/Burger";
+import OrderSummary from "./Builder/OrderSummary";
+import IngredientCard from "./Builder/IngredientCard";
+
+// Ingredients
+import { Buns, Patty, Salad, Sauce } from "./Builder/IngredientLIst";
 // FOOTER
 import Footer from "./Footer/Footer";
 
@@ -41,6 +51,8 @@ import Card from "./UI/Card";
 import QuantityCounter from "./UI/QuantityCounter";
 import Button from "./UI/Button";
 import Overlay from "./UI/Overlay";
+import Scroller from "./UI/Scroller";
+import OrderCount from "./UI/OrderCount";
 
 export {
   //Layout
@@ -67,6 +79,17 @@ export {
   IngredientType,
   Ingredient,
   BuilderTotal,
+  // Builder
+  Builder,
+  Controls,
+  Burger,
+  OrderSummary,
+  IngredientCard,
+  // Ingredients
+  Buns,
+  Patty,
+  Salad,
+  Sauce,
   //Footers
   Footer,
   //UI
@@ -76,5 +99,7 @@ export {
   Card,
   QuantityCounter,
   Button,
-  Overlay
+  Overlay,
+  Scroller,
+  OrderCount
 };

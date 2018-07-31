@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { OrderCount } from "../componentList";
 
 const NavItem = styled.div`
   /* border: 1px solid red; */
@@ -11,6 +12,10 @@ const NavItem = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  position: relative;
+  :hover {
+    transform: translateY(-5px) scale(1.1);
+  }
 
   > * {
     text-decoration: none;
@@ -19,7 +24,7 @@ const NavItem = styled.div`
   }
 
   font-family: "Bangers", cursive;
-  font-size: 2em;
+  font-size: 2rem;
   cursor: pointer;
   transition: 0.25s;
   > svg {
@@ -32,13 +37,14 @@ const NavItem = styled.div`
     /* color: #b00020; */
     color: #c93d1b;
     fill: #c93d1b;
-    transform: translateY(-5px) scale(1.1);
+    /* transform: translateY(-5px) scale(1.1); */
   }
 `;
 
 export default props => {
   return (
     <NavItem>
+      {props.orderCount ? <OrderCount>{props.orderCount}</OrderCount> : null}
       <NavLink to={props.to}>
         {props.iconName ? (
           <svg width="50px" height="50px">

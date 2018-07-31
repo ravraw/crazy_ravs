@@ -198,7 +198,6 @@ class Login extends Component {
                 name="username"
                 style={{ background: " #d6bb22" }}
                 value={this.state.username}
-                s
                 onChange={this.onChangeHandler}
               />
             </React.Fragment>

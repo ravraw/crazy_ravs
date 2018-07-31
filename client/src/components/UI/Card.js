@@ -43,7 +43,6 @@ const Div = styled.div`
 
 const Card = props => {
   return (
-    // <WrappingDiv maxWidth="225px" height="auto" minWidth="200px">
     <Div>
       <img src={props.image} alt="food" />
       <h1>{props.name}</h1>

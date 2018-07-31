@@ -1,26 +1,11 @@
 const router = require("express").Router();
 const passport = require("passport");
 
-// //auth login
-// router.get("/login", (req, res) => {});
+// @route GET auth/test
+// @desc Test auth route
+// @access Public
+router.get("/test", (req, res) => res.json({ msg: "google works" }));
 
-// // auth logout
-// router.get("/logout", (req, res) => {});
-
-// auth with google+
-
-router.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  if (req.method === "OPTIONS") {
-    res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-    return res.status(200).json({});
-  }
-  next();
-});
 router.get(
   "/google",
   passport.authenticate("google", {

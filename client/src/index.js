@@ -19,7 +19,7 @@ import registerServiceWorker from "./registerServiceWorker";
 
 // Axios
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:3005";
+axios.defaults.baseURL = "http://localhost:3005/";
 
 const initialState = {};
 

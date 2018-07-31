@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt-nodejs");
 const cors = require("cors");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
-const authGoogle = require("./routes/google");
+
 const passportSetup = require("./config/passport-setup");
 
 const port = process.env.PORT || 3005;
@@ -14,27 +14,20 @@ const ENV = process.env.ENV || "development";
 const knexConfig = require("./knexfile");
 const knex = require("knex")(knexConfig[ENV]);
 
+// ROUTES
+const users = require("./routes/api/users");
+const profile = require("./routes/api/profile");
+const posts = require("./routes/api/posts");
+const authGoogle = require("./routes/google");
+
 // app
 const app = express();
-
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-//   );
-//   if (req.method === "OPTIONS") {
-//     res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-//     return res.status(200).json({});
-//   }
-//   next();
-// });
 
 // Initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
 
-// middlewares
+// MIDDLEWARES
 app.use(bodyparser.json());
 app.use(cors());
 
@@ -45,8 +38,11 @@ app.use(
   })
 );
 
-// Google Auth
-app.use("/auth", cors(), authGoogle);
+// USE ROUTES
+app.use("/api/users", users);
+app.use("/api/profile", profile);
+app.use("/api/post", posts);
+app.use("/auth", authGoogle);
 
 // GET users
 

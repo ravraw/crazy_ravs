@@ -17,7 +17,8 @@ export default props => (
       justifyContent="space-around"
       alignItems="center"
     >
-      <NavItem to="/burgerbuilder" name="Builder" iconName="home" />
+      <NavItem to="/" name="Home" iconName="home" />
+      <NavItem to="/builder" name="Builder" iconName="home" />
       <NavItem to="/burgers" name="Burgers" iconName="burger" />
       <NavItem to="/shakes" name="Shakes" iconName="food-and-restaurant" />
       <NavItem to="/sides" name="Sides" iconName="food" />

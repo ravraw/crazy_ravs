@@ -6,7 +6,6 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex("shakes").insert([
         {
-          id: 1,
           item_name: "Cookie Monster",
           item_price: 5,
           item_description: "Shake Topped with Oreos and Glazed Donut",
@@ -15,7 +14,6 @@ exports.seed = function(knex, Promise) {
           item_image: "./images/cookie_monster_shake"
         },
         {
-          id: 2,
           item_name: "Cococola",
           item_price: 5,
           item_description:
@@ -25,7 +23,6 @@ exports.seed = function(knex, Promise) {
           item_image: "./images/cococola_shake"
         },
         {
-          id: 3,
           item_name: "Sugar Rush",
           item_price: 5,
           item_description:

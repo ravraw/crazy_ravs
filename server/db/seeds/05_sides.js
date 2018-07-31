@@ -1,13 +1,36 @@
-
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
+  return knex("sides")
+    .del()
+    .then(function() {
       // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+      return knex("sides").insert([
+        {
+          item_name: "Cookie Monster",
+          item_price: 5,
+          item_description: "Shake Topped with Oreos and Glazed Donut",
+          menu_type: "main",
+          item_type: "side",
+          item_image: "./images/cookie_monster_shake"
+        },
+        {
+          item_name: "Cococola",
+          item_price: 5,
+          item_description:
+            "Coconut Shell filled with Virgin Pina Colada Flavoured Shake",
+          menu_type: "main",
+          item_type: "side",
+          item_image: "./images/cococola_shake"
+        },
+        {
+          item_name: "Sugar Rush",
+          item_price: 5,
+          item_description:
+            "Shake Topped with Brownie and Chocolate Chip Cookie Ice Cream Sandwich",
+          menu_type: "main",
+          item_type: "side",
+          item_image: "./images/sugar_rush_shake"
+        }
       ]);
     });
 };
