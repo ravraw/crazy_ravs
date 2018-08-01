@@ -27,6 +27,7 @@ const Contol = styled.div`
   display: grid;
   grid-template-rows: 10% 10% 10% 10% 1fr;
   grid-template-columns: 100%;
+
   /* > * {
     border: 1px solid red;
   } */

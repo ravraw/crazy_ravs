@@ -7,6 +7,7 @@ const passport = require("passport");
 
 // Load Input Validation
 const validateSignupData = require("../../validation/signup");
+const validateSigninData = require("../../validation/signin");
 
 // knex setup
 const ENV = process.env.ENV || "development";
@@ -24,19 +25,20 @@ router.get("/test", (req, res) => res.json({ msg: "users works" }));
 // @access Public
 
 router.post("/signup", (req, res, next) => {
-  const { errors, isValid } = validateSignupData(req.body);
   // check Validation
+  const { errors, isValid } = validateSignupData(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
   }
+  // if no errors continue
   const { username, email, password } = req.body;
   const hash = bcrypt.hashSync(password);
+
   knex
     .select("email")
     .from("users")
     .where("email", "=", req.body.email)
     .then(user => {
-      console.log(user);
       if (!user[0]) {
         knex
           .insert({
@@ -46,7 +48,14 @@ router.post("/signup", (req, res, next) => {
           })
           .into("users")
           .returning("*")
-          .then(user => res.status(200).json(user[0].id));
+          .then(user =>
+            knex
+              .insert({
+                user_id: user[0].id
+              })
+              .into("user_profile")
+              .then(res.status(200).json(user[0].id))
+          );
       } else {
         res.status(400).json({ msg: "email already exists" });
       }
@@ -59,6 +68,12 @@ router.post("/signup", (req, res, next) => {
 // @access Public
 
 router.post("/signin", (req, res) => {
+  // check Validation
+  const { errors, isValid } = validateSigninData(req.body);
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+  // IF no validation errors continue
   const { email, password } = req.body;
   //Check for user
   knex
