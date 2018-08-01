@@ -8,7 +8,7 @@ import {
   Header,
   Sidebar,
   Main,
-  Login,
+  Signin,
   Footer,
   Builder,
   Burgers,
@@ -39,7 +39,7 @@ class Layout extends Component {
         <Main>
           <Switch>
             <Route path="/" exact render={() => <h1>Welcome</h1>} />
-            <Route path="/login" component={Login} />
+            <Route path="/signin" component={Signin} />
             <Route path="/burgers" component={Burgers} />
             <Route path="/shakes" component={Shakes} />
             <Route path="/sides" component={Sides} />

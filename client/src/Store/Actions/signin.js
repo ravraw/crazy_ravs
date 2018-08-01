@@ -1,22 +1,22 @@
 import * as actionTypes from "../Actions/actionTypes";
 import axios from "axios";
 
-export const loginStart = () => {
+export const signinStart = () => {
   return {
-    type: actionTypes.LOGIN_START
+    type: actionTypes.SIGNIN_START
   };
 };
 
-export const loginSuccess = data => {
+export const signinSuccess = data => {
   return {
-    type: actionTypes.LOGIN_SUCCESS,
+    type: actionTypes.SIGNIN_SUCCESS,
     payload: data
   };
 };
 
-export const loginFail = error => {
+export const signinFail = error => {
   return {
-    type: actionTypes.LOGIN_FAIL,
+    type: actionTypes.SIGNIN_FAIL,
     error: error
   };
 };
@@ -60,19 +60,19 @@ export const googleFail = error => {
   };
 };
 
-export const login = (email, password, username) => {
+export const signin = (email, password) => {
   return dispatch => {
-    dispatch(loginStart());
+    dispatch(signinStart());
     const data = { email, password };
     axios
-      .post("/signin", data)
+      .post("/api/users/signin", data)
       .then(res => {
         console.log(res);
-        dispatch(loginSuccess(res));
+        dispatch(signinSuccess(res));
       })
       .catch(err => {
         console.log(err);
-        dispatch(loginFail(err));
+        dispatch(signinFail(err));
       });
   };
 };
@@ -82,7 +82,7 @@ export const signup = (email, password, username) => {
     dispatch(signupStart());
     const data = { email, password, username };
     axios
-      .post("/signup", data)
+      .post("/api/users/signup", data)
       .then(res => {
         console.log(res);
         dispatch(signupSuccess(res));

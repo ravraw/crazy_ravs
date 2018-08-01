@@ -4,8 +4,6 @@ import NewLayout from "./Layout/Layout";
 
 // HEADER
 import Header from "./Header/Header";
-import SignIn from "./Header/SignIn";
-import SignUp from "./Header/SignUp";
 
 // SIDEBAR
 import Sidebar from "./Sidebar/Sidebar";
@@ -18,8 +16,8 @@ import Sides from "./Main/Sides";
 import Combos from "./Main/Combos";
 import BurgerBuilder from "./Main/BurgerBuilder";
 
-// LOGIN
-import Login from "./Login/Login";
+// SIGNIN
+import Signin from "./Signin/Signin";
 
 //BurgerBuilder
 
@@ -60,8 +58,6 @@ export {
   NewLayout,
   // Header
   Header,
-  SignIn,
-  SignUp,
   // Sisebar
   Sidebar,
   //Main
@@ -71,7 +67,7 @@ export {
   Sides,
   Combos,
   //
-  Login,
+  Signin,
   // BurgerBuilder
   BurgerBuilder,
   BurgerControls,

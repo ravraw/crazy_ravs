@@ -150,9 +150,9 @@ const Seeds2 = styled.div`
   }
 `;
 
-class Login extends Component {
+class Signin extends Component {
   state = {
-    login: true,
+    signin: true,
     username: "",
     email: "",
     password: ""
@@ -163,19 +163,19 @@ class Login extends Component {
 
   onSubmitHandler = e => {
     e.preventDefault();
-    this.state.login
-      ? this.props.onLogin(this.state.email, this.state.password)
+    this.state.signin
+      ? this.props.onSignin(this.state.email, this.state.password)
       : this.props.onSignup(
           this.state.email,
           this.state.password,
           this.state.username
         );
+    this.onToggleHandler();
   };
 
   onToggleHandler = e => {
-    e.preventDefault();
     this.setState({
-      login: !this.state.login,
+      signin: !this.state.signin,
       username: "",
       email: "",
       password: ""
@@ -190,7 +190,7 @@ class Login extends Component {
             <Seeds1 />
             <Seeds2 />
           </BreadTop>
-          {this.state.login ? null : (
+          {this.state.signin ? null : (
             <React.Fragment>
               <label htmlFor="username">Username</label>
               <input
@@ -199,6 +199,7 @@ class Login extends Component {
                 style={{ background: " #d6bb22" }}
                 value={this.state.username}
                 onChange={this.onChangeHandler}
+                required
               />
             </React.Fragment>
           )}
@@ -209,6 +210,7 @@ class Login extends Component {
             style={{ background: " #702e05" }}
             value={this.state.email}
             onChange={this.onChangeHandler}
+            required
           />
           <label htmlFor="password">Password</label>
           <input
@@ -217,13 +219,14 @@ class Login extends Component {
             style={{ background: " #228c1d" }}
             value={this.state.password}
             onChange={this.onChangeHandler}
+            required
           />
           <BreadBottom>
             <button onClick={this.onSubmitHandler}>
-              {this.state.login ? "Sign-In" : "Sign-Up"}
+              {this.state.signin ? "Sign-In" : "Sign-Up"}
             </button>
             <span onClick={this.onToggleHandler}>
-              Click to {this.state.login ? "Sign-Up" : "Sign-In"}
+              Click to {this.state.signin ? "Sign-Up" : "Sign-In"}
             </span>
           </BreadBottom>
           {/* <a href="http://localhost:3005/auth/google/"> */}
@@ -249,13 +252,13 @@ class Login extends Component {
 
 const mapStateToProps = state => {
   return {
-    loading: state.login.loading
+    loading: state.signin.loading
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onLogin: (email, password) => dispatch(actions.login(email, password)),
+    onSignin: (email, password) => dispatch(actions.signin(email, password)),
     onSignup: (email, password, username) =>
       dispatch(actions.signup(email, password, username)),
     onGoogle: () => dispatch(actions.googleAuth())
@@ -265,4 +268,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Login);
+)(Signin);

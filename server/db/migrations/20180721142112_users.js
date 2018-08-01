@@ -9,28 +9,29 @@ exports.up = function(knex, Promise) {
           .string("email")
           .unique()
           .notNullable();
+        table.string("password").notNullable();
         table.timestamp("created_at").defaultTo(knex.fn.now());
         table.timestamp("updated_at").defaultTo(knex.fn.now());
       })
 
       // user_login table
-      .createTable("user_login", table => {
-        table.increments();
-        table
-          .integer("user_id")
-          .unique()
-          .notNullable()
-          .unsigned()
-          .references("id_in_users");
-        table
-          .string("email")
-          .notNullable()
-          .unsigned();
-        table.foreign("email").references("email_in_users");
-        table.string("password").notNullable();
-        table.timestamp("created_at").defaultTo(knex.fn.now());
-        table.timestamp("updated_at").defaultTo(knex.fn.now());
-      })
+      // .createTable("user_login", table => {
+      //   table.increments();
+      //   table
+      //     .integer("user_id")
+      //     .unique()
+      //     .notNullable()
+      //     .unsigned()
+      //     .references("id_in_users");
+      //   table
+      //     .string("email")
+      //     .notNullable()
+      //     .unsigned();
+      //   table.foreign("email").references("email_in_users");
+      //   table.string("password").notNullable();
+      //   table.timestamp("created_at").defaultTo(knex.fn.now());
+      //   table.timestamp("updated_at").defaultTo(knex.fn.now());
+      // })
       // user_profile table
       .createTable("user_profile", table => {
         table.increments();
@@ -57,8 +58,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema
-    .dropTable("user_profile")
-    .dropTable("user_login")
-    .dropTable("users");
+  return knex.schema.dropTable("user_profile").dropTable("users");
 };

@@ -7,10 +7,10 @@ import { Provider } from "react-redux";
 import { combineReducers, createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import {
-  loginReducer,
+  signinReducer,
   signupReducer,
   googleAuthReducer
-} from "./Store/Reducers/login";
+} from "./Store/Reducers/signin";
 
 // Internal
 import "./index.css";
@@ -28,7 +28,7 @@ const middleware = [thunk];
 
 // REDUCERS  from Reducers folder / index.js
 const rootReducer = combineReducers({
-  login: loginReducer,
+  signin: signinReducer,
   signup: signupReducer,
   googleAuth: googleAuthReducer
 });
