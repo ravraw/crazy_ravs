@@ -1,18 +1,6 @@
 exports.up = function(knex, Promise) {
   return (
     knex.schema
-      // users table
-      .createTable("users", function(table) {
-        table.increments();
-        table.string("username").notNullable();
-        table
-          .string("email")
-          .unique()
-          .notNullable();
-        table.string("password").notNullable();
-        table.timestamp("created_at").defaultTo(knex.fn.now());
-        table.timestamp("updated_at").defaultTo(knex.fn.now());
-      })
       // user_profile table
       .createTable("user_profile", table => {
         table.increments();
@@ -35,9 +23,8 @@ exports.up = function(knex, Promise) {
         table.string("city_name");
         table.string("state_name");
         table.string("facebook_handle");
-        table.string("Instagram_handle");
+        table.string("instagram_handle");
         table.string("avatar");
-
         table.timestamp("created_at").defaultTo(knex.fn.now());
         table.timestamp("updated_at").defaultTo(knex.fn.now());
       })

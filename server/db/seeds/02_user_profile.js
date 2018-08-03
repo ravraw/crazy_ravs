@@ -16,6 +16,8 @@ exports.seed = function(knex, Promise) {
           area_zip: "aaa111",
           city_name: "city",
           state_name: "state",
+          facebook_handle: "@handle",
+          instagram_handle: "@handle",
           avatar: ""
         },
         {
@@ -29,7 +31,9 @@ exports.seed = function(knex, Promise) {
           area_zip: "aaa222",
           city_name: "city",
           state_name: "state",
-          avatar: ""
+          avatar: "",
+          facebook_handle: "@handle",
+          instagram_handle: "@handle"
         },
         {
           user_id: 3,
@@ -42,7 +46,9 @@ exports.seed = function(knex, Promise) {
           area_zip: "aaa333",
           city_name: "city",
           state_name: "state",
-          avatar: ""
+          avatar: "",
+          facebook_handle: "@handle",
+          instagram_handle: "@handle"
         }
       ]);
     });
