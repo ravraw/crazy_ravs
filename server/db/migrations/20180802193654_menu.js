@@ -7,10 +7,6 @@ exports.up = function(knex, Promise) {
       // 1. menu_type  (main,burgerbuilder,lunch,dinner,happyhour, promotional,newYears,Valentines ......)
       .createTable("menu_type", function(table) {
         table.increments();
-        table.string("date_day_week_availability");
-        table
-          .foreign("date_day_week_availability")
-          .references("id_in_date_day_week_availability");
         table.string("menu_type");
         table.timestamp("created_at").defaultTo(knex.fn.now());
         table.timestamp("updated_at").defaultTo(knex.fn.now());
