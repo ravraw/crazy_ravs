@@ -1,8 +1,10 @@
 /* eslint-disable max-len */
 
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import styled from "styled-components";
+import * as actions from "../../Store/Actions";
 
 import {
   Header,
@@ -31,6 +33,16 @@ const LayoutWrapper = styled.div`
 `;
 
 class Layout extends Component {
+  state = { menu: "" };
+
+  componentDidMount() {
+    this.props.onLoadMenu();
+    this.setState({
+      ...this.state,
+      menu: this.props.loadedMenu
+    });
+  }
+
   render() {
     return (
       <LayoutWrapper>
@@ -53,4 +65,21 @@ class Layout extends Component {
   }
 }
 
-export default Layout;
+const mapStateToProps = state => {
+  return {
+    loadedMenu: state.loadMenu.menu
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onLoadMenu: () => dispatch(actions.loadMenu())
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Layout)
+);

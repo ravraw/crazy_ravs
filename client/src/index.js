@@ -9,8 +9,9 @@ import thunk from "redux-thunk";
 import {
   signinReducer,
   signupReducer,
-  googleAuthReducer
-} from "./Store/Reducers/signin";
+  googleAuthReducer,
+  menuLoadReducer
+} from "./Store/Reducers";
 
 // Internal
 import "./index.css";
@@ -30,7 +31,8 @@ const middleware = [thunk];
 const rootReducer = combineReducers({
   signin: signinReducer,
   signup: signupReducer,
-  googleAuth: googleAuthReducer
+  googleAuth: googleAuthReducer,
+  loadMenu: menuLoadReducer
 });
 
 // ADDS REDUX DEV TOOL

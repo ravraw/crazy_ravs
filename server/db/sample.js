@@ -139,3 +139,26 @@ exports.seed = function(knex, Promise) {
 // Mr Smith
 // Ms Davis
 // Mrs. Robinson
+
+// id  -- 1
+// name -- old timer
+// price -- $10
+// description -- oldtimer burger
+// section -- burgers / shakes / sides
+// category -- food / beverage
+// meatType -- vegetarian, beef,chicken,lamb,pork,salmon
+//
+
+// id  -- 2
+// name -- burgerBuilder
+// price -- $10
+// description -- buildyour burger
+// type -- burger/side/shake / bun/sauce/salad/patty/pickle/
+// category  -- food / beverage
+//
+//
+
+// section -- burgers / shakes / sides / burgerbuilder
+// category -- food / beverage
+// meatType -- vegetarian, beef,chicken,lamb,pork,salmon
+//

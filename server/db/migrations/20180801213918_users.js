@@ -13,13 +13,6 @@ exports.up = function(knex, Promise) {
       // user_profile table
       .createTable("user_profile", table => {
         table.increments();
-        // table
-        //   .integer("user_id")
-        //   .references("id")
-        //   .inTable("users")
-        //   .notNull()
-        //   .foreign()
-        //   .onDelete("cascade");
         table.integer("user_id").unsigned();
         table.foreign("user_id").references("user_id_in_users");
         table.string("first_name");

@@ -14,7 +14,7 @@ const knexConfig = require("./knexfile");
 const knex = require("knex")(knexConfig[ENV]);
 
 // ROUTES
-const { users, profile, posts } = require("./routes/api");
+const { users, profile, posts, menu } = require("./routes/api");
 const authGoogle = require("./routes/google");
 
 // APP
@@ -41,6 +41,7 @@ require("./config/passport-jwt")(passport);
 app.use("/api/users", users);
 app.use("/api/profile", profile);
 app.use("/api/post", posts);
+app.use("/api/menu", menu);
 app.use("/auth", authGoogle);
 
 // // GET users

@@ -1,41 +1,45 @@
 const generateSeed = (
-  num,
-  category,
+  qty,
   price,
-  menu_type,
-  menuItem_type,
+  name,
+  section,
+  fnb_type,
   meat_type,
-  availability
+  available
 ) => {
   const seed = [];
-  for (let i = 0; i < num; i++) {
+  for (let i = 0; i < qty; i++) {
     seed.push({
-      item_name: `${category}- ${i + 1}`,
-      item_price: price,
-      item_description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis sint molestias quos, dicta, architecto aliquam atque illum repellendus!.",
-      menu_type: menu_type,
-      menu_category: category,
-      menuItem_type: menuItem_type,
+      name: `${name}- ${i + 1}`,
+      price: price,
+      description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis sint molestias quos, dicta repellendus!.",
+      menu_section: section,
+      fnb_type: fnb_type,
       meat_type: meat_type,
-      availability: availability,
-      item_image: `images/${category}_${i + 1}.png`
+      current_availability: available,
+      image: `images/${section}_${i + 1}.png`
     });
   }
   return seed;
 };
 
+// qty, price, section, 'fnb_type', meat_type, available
 const seeds = [
-  ...generateSeed(10, "burger", 10, 1, 1, 2),
-  ...generateSeed(10, "shake", 5, 1, 2, 1),
-  ...generateSeed(8, "sides", 3, 1, 1, 1),
-  ...generateSeed(8, "bunType", 3, 2, 1, 1),
-  ...generateSeed(8, "bunType", 3, 2, 1, 1),
-  ...generateSeed(8, "bunType", 3, 2, 1, 1),
-  ...generateSeed(8, "bunType", 3, 2, 1, 1),
-  ...generateSeed(8, "bunType", 3, 2, 1, 1),
-  ...generateSeed(8, "bunType", 3, 2, 1, 1),
-  ...generateSeed(8, "bunType", 3, 2, 1, 1)
+  ...generateSeed(8, 10, "beef-burger", "burger", "food", "beef", true),
+  ...generateSeed(5, 10, "lamb-burger", "burger", "food", "lamb", true),
+  ...generateSeed(5, 10, "chicken-burger", "burger", "food", "chicken", true),
+  ...generateSeed(5, 10, "veggie-burger", "burger", "food", "veg", true),
+  ...generateSeed(5, 10, "seafood-burger", "burger", "food", "seafood", true),
+  ...generateSeed(10, 6, "choco-shake", "shake", "beverage", "veg", true),
+  ...generateSeed(10, 3, "fries", "side", "food", "veg", true),
+  ...generateSeed(8, 1, "bun type", "bun", "food", "veg", true),
+  ...generateSeed(8, 1, "sauce", "sauce", "food", "veg", true),
+  ...generateSeed(8, 3, "patty", "patty", "food", "beef", true),
+  ...generateSeed(8, 10, "cheese", "cheese", "food", "veg", true),
+  ...generateSeed(8, 10, "salad", "salad", "food", "veg", true),
+  ...generateSeed(8, 10, "pickle", "pickle", "food", "veg", true),
+  ...generateSeed(8, 10, "meat-topping", "meat_topping", "food", "pork", true)
 ];
 
 exports.seed = function(knex, Promise) {

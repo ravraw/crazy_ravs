@@ -4,21 +4,22 @@ exports.up = function(knex, Promise) {
       // menu_item table
       .createTable("menu_item", function(table) {
         table.increments();
-        table.string("item_name").notNullable();
-        table.decimal("item_price").notNullable();
-        table.string("item_description").notNullable();
-        table.string("menu_type").notNullable();
-        table.string("menu_category").notNullable();
-        table.string("menuItem_type").notNullable();
+        table.string("name").notNullable();
+        table.decimal("price").notNullable();
+        table.string("description").notNullable();
+        table.string("menu_section").notNullable();
+        table
+          .foreign("menu_section")
+          .references("menu_section_in_menu_section");
+        table.string("fnb_type").notNullable();
+        table.foreign("fnb_type").references("fnb_type_in_fnb_type");
         table.string("meat_type").notNullable();
+        table.foreign("meat_type").references("meat_type_in_meat_type");
         table
-          .string("availability")
+          .boolean("current_availability")
           .notNullable()
-          .defaultTo(1);
-        table
-          .foreign("availability")
-          .references("id_in_date_day_week_availability");
-        table.string("item_image");
+          .defaultTo(true);
+        table.string("image");
         table.timestamp("created_at").defaultTo(knex.fn.now());
         table.timestamp("updated_at").defaultTo(knex.fn.now());
       })
