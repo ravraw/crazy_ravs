@@ -32,6 +32,7 @@ const seeds = [
   ...generateSeed(5, 10, "veggie-burger", "burger", "food", "veg", true),
   ...generateSeed(5, 10, "seafood-burger", "burger", "food", "seafood", true),
   ...generateSeed(10, 6, "choco-shake", "shake", "beverage", "veg", true),
+  ...generateSeed(10, 6, "combo", "combo", "food", "beef", true),
   ...generateSeed(10, 3, "fries", "side", "food", "veg", true),
   ...generateSeed(8, 1, "bun type", "bun", "food", "veg", true),
   ...generateSeed(8, 1, "sauce", "sauce", "food", "veg", true),

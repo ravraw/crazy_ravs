@@ -33,17 +33,52 @@ const LayoutWrapper = styled.div`
 `;
 
 class Layout extends Component {
-  state = { menu: "" };
-
+  state = {
+    menu: "",
+    burger: "",
+    shakes: ""
+  };
   componentDidMount() {
     this.props.onLoadMenu();
+  }
+  changeState = () => {
     this.setState({
       ...this.state,
-      menu: this.props.loadedMenu
+      menu: [...this.props.loadedMenu]
     });
-  }
+  };
 
   render() {
+    let burgers,
+      shakes,
+      sides,
+      builder,
+      combos,
+      bun,
+      sauce,
+      patty,
+      cheese,
+      salad,
+      pickle,
+      meat_topping;
+    if (this.props.loadedMenu) {
+      burgers = this.props.loadedMenu.filter(
+        el => el.menu_section === "burger"
+      );
+      shakes = this.props.loadedMenu.filter(el => el.menu_section === "shake");
+      sides = this.props.loadedMenu.filter(el => el.menu_section === "side");
+      combos = this.props.loadedMenu.filter(el => el.menu_section === "combo");
+      bun = this.props.loadedMenu.filter(el => el.menu_section === "bun");
+      sauce = this.props.loadedMenu.filter(el => el.menu_section === "sauce");
+      patty = this.props.loadedMenu.filter(el => el.menu_section === "patty");
+      cheese = this.props.loadedMenu.filter(el => el.menu_section === "cheese");
+      salad = this.props.loadedMenu.filter(el => el.menu_section === "salad");
+      pickle = this.props.loadedMenu.filter(el => el.menu_section === "pickle");
+      meat_topping = this.props.loadedMenu.filter(
+        el => el.menu_section === "meat_topping"
+      );
+    }
+    console.log(burgers, shakes, sides, builder, combos);
     return (
       <LayoutWrapper>
         <Header />
@@ -52,11 +87,27 @@ class Layout extends Component {
           <Switch>
             <Route path="/" exact render={() => <h1>Welcome</h1>} />
             <Route path="/signin" component={Signin} />
-            <Route path="/burgers" component={Burgers} />
-            <Route path="/shakes" component={Shakes} />
-            <Route path="/sides" component={Sides} />
-            <Route path="/builder" component={Builder} />
-            <Route path="/combos" component={Combos} />
+            <Route
+              path="/burgers"
+              render={() => <Burgers burgers={burgers} />}
+            />
+            <Route path="/shakes" render={() => <Shakes shakes={shakes} />} />
+            <Route path="/sides" render={() => <Sides sides={sides} />} />
+            <Route
+              path="/builder"
+              render={() => (
+                <Builder
+                  bun={bun}
+                  sauce={sauce}
+                  patty={patty}
+                  cheese={cheese}
+                  salad={salad}
+                  pickle={pickle}
+                  meat_topping={meat_topping}
+                />
+              )}
+            />
+            <Route path="/combos" render={() => <Combos combos={combos} />} />
           </Switch>
         </Main>
         <Footer />

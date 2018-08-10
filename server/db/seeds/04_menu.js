@@ -9,6 +9,7 @@ exports.seed = function(knex, Promise) {
         { menu_section: "burger" },
         { menu_section: "shake" },
         { menu_section: "side" },
+        { menu_section: "combo" },
         { menu_section: "bun" },
         { menu_section: "sauce" },
         { menu_section: "patty" },

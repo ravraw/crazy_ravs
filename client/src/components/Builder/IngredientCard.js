@@ -25,7 +25,7 @@ const Card = styled.div`
 export default props => {
   return (
     <Card>
-      <img src={burger} alt={props.imgName} height="100px" />
+      <img src={props.image} alt={props.image} height="100px" />
       <p>{props.name}</p>
       <button>ADD</button>
     </Card>

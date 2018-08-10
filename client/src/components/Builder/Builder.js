@@ -25,7 +25,7 @@ export default class Builder extends Component {
   render() {
     return (
       <Container>
-        <Controls />
+        <Controls {...this.props} />
         <Burger />
         <OrderSummary />
       </Container>

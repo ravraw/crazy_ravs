@@ -13,7 +13,7 @@ import {
   Salad,
   Pickle,
   Topping,
-  Side
+  MeatTopping
 } from "../componentList";
 
 import burger from "../../assets/images/burger.jpg";
@@ -34,6 +34,7 @@ const Contol = styled.div`
 `;
 
 const Control = props => {
+  console.log(props);
   console.log(props.match.url);
   return (
     <Contol>
@@ -51,20 +52,46 @@ const Control = props => {
         <NavItem to={`${props.match.url}/salad`} name="Salad" iconName="" />
         <NavItem to={`${props.match.url}/pickle`} name="Pickle" iconName="" />
         <NavItem to={`${props.match.url}/topping`} name="Topping" iconName="" />
-        <NavItem to={`${props.match.url}/side`} name="Side" iconName="" />
       </Navbar>
       <h2>Choose any 3 </h2>
       <Scroller>
         <Switch>
           <Route path="/builder/" exact render={() => <h1>Welcome</h1>} />
-          <Route path="/builder/buns" exact component={Buns} />
-          <Route path="/builder/sauce" exact component={Sauce} />
-          <Route path="/builder/patty" exact component={Patty} />
-          <Route path="/builder/cheese" exact component={Patty} />
-          <Route path="/builder/salad" exact component={Salad} />
-          <Route path="/builder/pickle" exact component={Patty} />
-          <Route path="/builder/topping" exact component={Buns} />
-          <Route path="/builder/side" exact component={Patty} />
+          <Route
+            path="/builder/buns"
+            exact
+            render={() => <Buns bun={props.bun} />}
+          />
+          <Route
+            path="/builder/sauce"
+            exact
+            render={() => <Sauce sauce={props.sauce} />}
+          />
+          <Route
+            path="/builder/patty"
+            exact
+            render={() => <Patty patty={props.patty} />}
+          />
+          <Route
+            path="/builder/cheese"
+            exact
+            render={() => <Cheese cheese={props.cheese} />}
+          />
+          <Route
+            path="/builder/salad"
+            exact
+            render={() => <Salad salad={props.salad} />}
+          />
+          <Route
+            path="/builder/pickle"
+            exact
+            render={() => <Pickle pickle={props.pickle} />}
+          />
+          <Route
+            path="/builder/topping"
+            exact
+            render={() => <MeatTopping meat_topping={props.meat_topping} />}
+          />
         </Switch>
       </Scroller>
     </Contol>

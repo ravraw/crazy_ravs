@@ -37,7 +37,15 @@ import OrderSummary from "./Builder/OrderSummary";
 import IngredientCard from "./Builder/IngredientCard";
 
 // Ingredients
-import { Buns, Patty, Salad, Sauce } from "./Builder/IngredientLIst";
+import {
+  Buns,
+  Sauce,
+  Patty,
+  Cheese,
+  Salad,
+  Pickle,
+  MeatTopping
+} from "./Builder/IngredientLIst";
 // FOOTER
 import Footer from "./Footer/Footer";
 
@@ -83,9 +91,12 @@ export {
   IngredientCard,
   // Ingredients
   Buns,
-  Patty,
-  Salad,
   Sauce,
+  Patty,
+  Cheese,
+  Salad,
+  Pickle,
+  MeatTopping,
   //Footers
   Footer,
   //UI
