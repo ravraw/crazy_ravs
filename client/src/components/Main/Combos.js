@@ -12,12 +12,7 @@ const Div = styled.div`
 
 export default props => {
   const comboList = props.combos.map(el => (
-    <Card
-      name={el.name}
-      description={el.description}
-      image={combo}
-      key={el.id}
-    />
+    <Card item={el} image={combo} key={el.id} />
   ));
   return <Div>{comboList}</Div>;
 };

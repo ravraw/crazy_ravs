@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 const Counter = styled.div`
   font-size: 12px;
@@ -26,12 +26,36 @@ const Counter = styled.div`
   }
 `;
 
-export default () => {
-  return (
-    <Counter>
-      <span id="span1">LESS</span>
-      <span id="span2">1</span>
-      <span id="span3">MORE</span>
-    </Counter>
-  );
-};
+export default class QuantityCounter extends Component {
+  state = {
+    qty: 1
+  };
+
+  onLess = () => {
+    if (this.state.qty > 0) {
+      this.setState(prevState => {
+        return { qty: prevState.qty - 1 };
+      });
+    }
+  };
+  onMore = () => {
+    if (this.state.qty >= 0) {
+      this.setState(prevState => {
+        return { qty: prevState.qty + 1 };
+      });
+    }
+  };
+  render() {
+    return (
+      <Counter>
+        <span id="span1" onClick={this.onLess}>
+          LESS
+        </span>
+        <span id="span2">{this.state.qty}</span>
+        <span id="span3" onClick={this.onMore}>
+          MORE
+        </span>
+      </Counter>
+    );
+  }
+}

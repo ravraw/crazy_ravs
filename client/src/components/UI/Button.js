@@ -15,5 +15,5 @@ const Button = styled.button`
   }
 `;
 export default props => {
-  return <Button>{props.name}</Button>;
+  return <Button onClick={props.onClick}>{props.name}</Button>;
 };

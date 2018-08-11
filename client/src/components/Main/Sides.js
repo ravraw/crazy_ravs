@@ -12,12 +12,7 @@ const Div = styled.div`
 
 export default props => {
   const sideList = props.sides.map(el => (
-    <Card
-      name={el.name}
-      description={el.description}
-      image={side}
-      key={el.id}
-    />
+    <Card item={el} image={side} key={el.id} />
   ));
   return <Div>{sideList}</Div>;
 };

@@ -9,7 +9,7 @@ export const menuLoadStart = () => {
 };
 
 export const menuLoadSuccess = data => {
-  console.log("action-succes");
+  // returns menu sections
   const menu = {};
   data.forEach(el => {
     if (!menu[el.menu_section]) {

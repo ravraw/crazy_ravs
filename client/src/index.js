@@ -10,7 +10,8 @@ import {
   signinReducer,
   signupReducer,
   googleAuthReducer,
-  menuLoadReducer
+  menuLoadReducer,
+  orderReducer
 } from "./Store/Reducers";
 
 // Internal
@@ -32,7 +33,8 @@ const rootReducer = combineReducers({
   signin: signinReducer,
   signup: signupReducer,
   googleAuth: googleAuthReducer,
-  loadMenu: menuLoadReducer
+  loadMenu: menuLoadReducer,
+  order: orderReducer
 });
 
 // ADDS REDUX DEV TOOL

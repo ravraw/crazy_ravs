@@ -12,12 +12,7 @@ const Div = styled.div`
 
 export default props => {
   const shakeList = props.shakes.map(el => (
-    <Card
-      name={el.name}
-      description={el.description}
-      image={shake}
-      key={el.id}
-    />
+    <Card item={el} image={shake} key={el.id} />
   ));
   return <Div>{shakeList}</Div>;
 };

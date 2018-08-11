@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "../../Store/Actions";
 
 import { QuantityCounter, Button } from "../componentList";
 
@@ -42,16 +45,31 @@ const Div = styled.div`
 `;
 
 const Card = props => {
+  const onClick = () => {
+    let qty = document.querySelector("#span2").textContent;
+    let item = { ...props.item, quantity: +qty };
+    props.addItem(item);
+  };
   return (
     <Div>
       <img src={props.image} alt="food" />
-      <h1>{props.name}</h1>
-      <p>{props.description}</p>
+      <h1>{props.item.name}</h1>
+      <p>{props.item.description}</p>
       <QuantityCounter />
-      <Button name="ADD TO ORDER" />
+      <Button name="ADD TO ORDER" onClick={onClick} />
     </Div>
-    // </WrappingDiv>
   );
 };
 
-export default Card;
+const mapDispatchToProps = dispatch => {
+  return {
+    addItem: item => dispatch(actions.addItem(item))
+  };
+};
+
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(Card)
+);
