@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import burger from "../../assets/images/burger.jpg";
+
 const Card = styled.div`
   /* border: 1px solid red; */
   height: 100%;

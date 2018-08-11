@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Card } from "../componentList";
 import side from "../../assets/images/side.png";
@@ -12,7 +12,12 @@ const Div = styled.div`
 
 export default props => {
   const sideList = props.sides.map(el => (
-    <Card name={el.name} description={el.description} image={side} />
+    <Card
+      name={el.name}
+      description={el.description}
+      image={side}
+      key={el.id}
+    />
   ));
   return <Div>{sideList}</Div>;
 };

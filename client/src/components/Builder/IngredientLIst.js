@@ -10,47 +10,47 @@ import meat_toppingImg from "../../assets/images/meat_topping.png";
 
 export const Buns = props => {
   const buns = props.bun.map(el => (
-    <IngredientCard name={el.name} image={bunImg} />
+    <IngredientCard name={el.name} image={bunImg} key={el.id} />
   ));
   return <React.Fragment>{buns}}</React.Fragment>;
 };
 export const Sauce = props => {
   const sauce = props.sauce.map(el => (
-    <IngredientCard name={el.name} image={sauceImg} />
+    <IngredientCard name={el.name} image={sauceImg} key={el.id} />
   ));
   return <React.Fragment>{sauce}}</React.Fragment>;
 };
 export const Patty = props => {
   const patty = props.patty.map(el => (
-    <IngredientCard name={el.name} image={pattyImg} />
+    <IngredientCard name={el.name} image={pattyImg} key={el.id} />
   ));
   return <React.Fragment>{patty}}</React.Fragment>;
 };
 
 export const Cheese = props => {
   const cheese = props.cheese.map(el => (
-    <IngredientCard name={el.name} image={cheeseImg} />
+    <IngredientCard name={el.name} image={cheeseImg} key={el.id} />
   ));
   return <React.Fragment>{cheese}}</React.Fragment>;
 };
 
 export const Salad = props => {
   const salad = props.salad.map(el => (
-    <IngredientCard name={el.name} image={saladImg} />
+    <IngredientCard name={el.name} image={saladImg} key={el.id} />
   ));
   return <React.Fragment>{salad}}</React.Fragment>;
 };
 
 export const Pickle = props => {
   const pickle = props.pickle.map(el => (
-    <IngredientCard name={el.name} image={pickleImg} />
+    <IngredientCard name={el.name} image={pickleImg} key={el.id} />
   ));
   return <React.Fragment>{pickle}}</React.Fragment>;
 };
 
 export const MeatTopping = props => {
   const meatTopping = props.meat_topping.map(el => (
-    <IngredientCard name={el.name} image={meat_toppingImg} />
+    <IngredientCard name={el.name} image={meat_toppingImg} key={el.id} />
   ));
   return <React.Fragment>{meatTopping}}</React.Fragment>;
 };

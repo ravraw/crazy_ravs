@@ -19,9 +19,6 @@ const Container = styled.div`
 `;
 
 export default class Builder extends Component {
-  componentDidMount() {
-    console.log(this.props);
-  }
   render() {
     return (
       <Container>

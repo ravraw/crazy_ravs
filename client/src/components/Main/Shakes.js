@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Card } from "../componentList";
 import shake from "../../assets/images/shake.jpg";
@@ -12,7 +12,12 @@ const Div = styled.div`
 
 export default props => {
   const shakeList = props.shakes.map(el => (
-    <Card name={el.name} description={el.description} image={shake} />
+    <Card
+      name={el.name}
+      description={el.description}
+      image={shake}
+      key={el.id}
+    />
   ));
   return <Div>{shakeList}</Div>;
 };

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Card } from "../componentList";
 import burger from "../../assets/images/burger.jpg";
@@ -12,7 +12,12 @@ const Div = styled.div`
 
 export default props => {
   const burgerList = props.burgers.map(el => (
-    <Card name={el.name} description={el.description} image={burger} />
+    <Card
+      name={el.name}
+      description={el.description}
+      image={burger}
+      key={el.id}
+    />
   ));
   return <Div>{burgerList}</Div>;
 };

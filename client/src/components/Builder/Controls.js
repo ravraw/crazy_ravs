@@ -4,7 +4,6 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import {
   Navbar,
   NavItem,
-  IngredientCard,
   Scroller,
   Buns,
   Sauce,
@@ -12,11 +11,8 @@ import {
   Cheese,
   Salad,
   Pickle,
-  Topping,
   MeatTopping
 } from "../componentList";
-
-import burger from "../../assets/images/burger.jpg";
 
 const Contol = styled.div`
   grid-area: cont;
