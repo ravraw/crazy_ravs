@@ -1,10 +1,10 @@
 /* eslint-disable max-len */
 
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { connect } from "react-redux";
+// import { withRouter } from "react-router-dom";
+// import { connect } from "react-redux";
 import styled from "styled-components";
-import * as actions from "../../Store/Actions";
+// import * as actions from "../../Store/Actions";
 
 import { Header, Sidebar, Main, Footer } from "../componentList";
 
@@ -22,49 +22,16 @@ const LayoutWrapper = styled.div`
 `;
 
 class Layout extends Component {
-  componentDidMount() {
-    this.props.onLoadMenu();
-  }
-
-  render() {
-    const menu = {};
-
-    if (this.props.loadedMenu) {
-      this.props.loadedMenu.forEach(el => {
-        if (!menu[el.menu_section]) {
-          menu[el.menu_section] = [];
-        } else {
-          menu[el.menu_section].push(el);
-        }
-      });
-    }
-    console.log(menu);
+  render(props) {
     return (
       <LayoutWrapper>
         <Header />
         <Sidebar />
-        <Main menu={menu} />
+        <Main menu={this.props.menu} />
         <Footer />
       </LayoutWrapper>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    loadedMenu: state.loadMenu.menu
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onLoadMenu: () => dispatch(actions.loadMenu())
-  };
-};
-
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Layout)
-);
+export default Layout;

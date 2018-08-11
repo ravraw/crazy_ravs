@@ -30,8 +30,6 @@ const Contol = styled.div`
 `;
 
 const Control = props => {
-  console.log(props);
-  console.log(props.match.url);
   return (
     <Contol>
       <h1>Build your burger in seconds...</h1>

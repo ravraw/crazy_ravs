@@ -15,3 +15,16 @@ export const GOOGLE_AUTH_FAIL = "GOOGLE_AUTH_FAIL";
 export const MENU_LOAD_START = "MENU_LOAD_START";
 export const MENU_LOAD_SUCCESS = "MENU_LOAD_SUCCESS";
 export const MENU_LOAD_FAIL = "MENU_LOAD_FAIL";
+
+//ORDER
+export const ADD_ITEM = "ADD_ITEM";
+export const REMOVE_ITEM = "REMOVE_ITEM";
+export const EDIT_ORDER = "EDIT_ORDER";
+export const CANCEL_ORDER = "CANCEL_ORDER";
+export const CONFIRM_ORDER = " CONFIRM_ORDER";
+export const MAKE_PAYMENT = " MAKE_PAYMENT";
+export const PAYMENT_SUCCESS = " PAYMENT_SUCCESS";
+export const PAYMENT_FAIL = " PAYMENT_FAIL";
+export const PLACE_ORDER = " PLACE_ORDER";
+export const ORDER_SUCCESS = "ORDER_SUCCESS";
+export const ORDER_FAIL = "ORDER_FAIL";

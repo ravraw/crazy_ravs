@@ -8,8 +8,16 @@ export const menuLoadStart = () => {
   };
 };
 
-export const menuLoadSuccess = menu => {
+export const menuLoadSuccess = data => {
   console.log("action-succes");
+  const menu = {};
+  data.forEach(el => {
+    if (!menu[el.menu_section]) {
+      menu[el.menu_section] = [];
+    } else {
+      menu[el.menu_section].push(el);
+    }
+  });
   return {
     type: actionTypes.MENU_LOAD_SUCCESS,
     payload: menu
