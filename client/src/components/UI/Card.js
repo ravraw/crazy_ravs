@@ -48,7 +48,11 @@ const Card = props => {
   const onClick = () => {
     let qty = document.querySelector("#span2").textContent;
     let item = { ...props.item, quantity: +qty };
-    props.addItem(item);
+    // send different actions for burger and burgerbuilder add items
+    console.log(props.location.pathname.search(/builder/i) > -1);
+    props.location.pathname.search(/builder/i) > -1
+      ? props.addIngredient(item)
+      : props.addItem(item);
   };
   return (
     <Div>
@@ -61,15 +65,22 @@ const Card = props => {
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    loadedMenu: state.loadMenu.menu
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
-    addItem: item => dispatch(actions.addItem(item))
+    addItem: item => dispatch(actions.addItem(item)),
+    addIngredient: item => dispatch(actions.addIngredient(item))
   };
 };
 
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(Card)
 );

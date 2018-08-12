@@ -11,7 +11,8 @@ import {
   signupReducer,
   googleAuthReducer,
   menuLoadReducer,
-  orderReducer
+  orderReducer,
+  burgerBuilderReducer
 } from "./Store/Reducers";
 
 // Internal
@@ -34,7 +35,8 @@ const rootReducer = combineReducers({
   signup: signupReducer,
   googleAuth: googleAuthReducer,
   loadMenu: menuLoadReducer,
-  order: orderReducer
+  order: orderReducer,
+  burgerBuilder: burgerBuilderReducer
 });
 
 // ADDS REDUX DEV TOOL

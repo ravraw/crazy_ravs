@@ -27,6 +27,7 @@ import BurgerDisplay from "./BurgerBuilder/BurgerDisplay";
 import IngredientType from "./BurgerBuilder/IngredientType";
 import Ingredient from "./BurgerBuilder/Ingredient";
 import BuilderTotal from "./BurgerBuilder/BuilderTotal";
+import BurgerIngredient from "./UI/BurgerIngredient";
 
 // Builder
 
@@ -83,6 +84,7 @@ export {
   IngredientType,
   Ingredient,
   BuilderTotal,
+  BurgerIngredient,
   // Builder
   Builder,
   Controls,

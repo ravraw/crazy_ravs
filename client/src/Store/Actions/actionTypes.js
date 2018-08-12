@@ -18,3 +18,6 @@ export const MENU_LOAD_FAIL = "MENU_LOAD_FAIL";
 
 //ORDER
 export const ADD_ITEM = "ADD_ITEM";
+
+//BURGERBUILDER
+export const ADD_INGREDIENT = "ADD_INGREDIENT";
