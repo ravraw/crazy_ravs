@@ -12,6 +12,10 @@ import { Header, Sidebar, Main, Footer } from "../componentList";
 
 const LayoutWrapper = styled.div`
   display: grid;
+  max-width: 1440px;
+  margin: auto;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
   /* grid-template: 100px 500px 100px / repeat(12, 1fr); */
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 20vh 75vh 5vh;
