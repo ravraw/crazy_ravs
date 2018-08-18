@@ -162,3 +162,7 @@ exports.seed = function(knex, Promise) {
 // category -- food / beverage
 // meatType -- vegetarian, beef,chicken,lamb,pork,salmon
 //
+
+// Hi my name is Ravindra Rawat, and i ma from Calgary Alberta .
+// i am a restaurant manager and have managed restaurants for brands like Chili's grill and bar and RubyTuesdays.
+//

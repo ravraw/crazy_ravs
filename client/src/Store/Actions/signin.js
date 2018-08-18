@@ -8,6 +8,7 @@ export const signinStart = () => {
 };
 
 export const signinSuccess = data => {
+  console.log(data);
   return {
     type: actionTypes.SIGNIN_SUCCESS,
     payload: data

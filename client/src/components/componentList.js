@@ -60,6 +60,7 @@ import Button from "./UI/Button";
 import Overlay from "./UI/Overlay";
 import Scroller from "./UI/Scroller";
 import OrderCount from "./UI/OrderCount";
+import Modal from "./UI/OrderCount";
 
 export {
   //Layout
@@ -110,5 +111,6 @@ export {
   Button,
   Overlay,
   Scroller,
-  OrderCount
+  OrderCount,
+  Modal
 };
