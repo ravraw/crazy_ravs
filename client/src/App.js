@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import * as actions from "./Store/Actions";
 
-import { Layout } from "./components/componentList";
+import { Layout, Modal } from "./components/componentList";
 import "./index.css";
 
 class App extends Component {
@@ -12,7 +12,11 @@ class App extends Component {
     this.props.onLoadMenu();
   }
   render() {
-    return <Layout menu={this.props.loadedMenu} />;
+    return (
+      <React.Fragment>
+        <Layout menu={this.props.loadedMenu} />
+      </React.Fragment>
+    );
   }
 }
 
